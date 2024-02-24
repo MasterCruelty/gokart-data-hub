@@ -17,8 +17,10 @@ outdoor_df = df[df['track-type'] == 'outdoor']
 # Function to plot best-time
 def plot_best_time():
     plt.figure(figsize=(10, 6))
-    plt.plot(indoor_df['date'], indoor_df['best-time'], label='Indoor', marker='o')
-    plt.plot(outdoor_df['date'], outdoor_df['best-time'], label='Outdoor', marker='o')
+    indoor_sorted = indoor_df.sort_values(by='best-time')
+    outdoor_sorted = outdoor_df.sort_values(by='best-time')
+    plt.plot(indoor_sorted['date'], indoor_sorted['best-time'], label='Indoor', marker='o')
+    plt.plot(outdoor_sorted['date'], outdoor_sorted['best-time'], label='Outdoor', marker='o')
     plt.title('Best time lap in indoor and outdoor tracks.')
     plt.xlabel('Date')
     plt.ylabel('Best time lap')
