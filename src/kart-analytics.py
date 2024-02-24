@@ -1,8 +1,8 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# Read csv file
-df = pd.read_csv(r'kart-data.csv', na_values=['', 'NA', 'N/A', 'NaN'])
+# Rea csv file
+df = pd.read_csv(r'kart-data-example.csv', na_values=['', 'NA', 'N/A', 'NaN'])
 
 
 # Convert date to datetime format preparing to sort
