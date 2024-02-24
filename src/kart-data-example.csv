@@ -1,0 +1,17 @@
+date,kart-type,race-type,position,track-name,track-type,avg-speed,best-time,avg-time
+12/02/2018,fuel,free laps,None,Buccinasco,indoor,45,00:47:56,00:49:41
+13/02/2018,fuel,free laps,None,Buccinasco,indoor,43,00:49:42,00:49:42
+14/02/2018,fuel,free laps,None,Buccinasco,indoor,44,00:50:23,00:50:23
+15/02/2018,fuel,free laps,None,Buccinasco,indoor,47,00:51:46,00:51:46
+16/02/2018,electric,free laps,None,Meda,indoor,49,00:52:45,00:52:45
+17/02/2018,electric,free laps,None,Meda,indoor,42,00:53:41,00:53:41
+18/02/2018,electric,free laps,None,Meda,outdoor,44,00:55:52,00:55:52
+20/07/2016,electric,free laps,None,Meda,outdoor,46,00:50:23,00:50:23
+21/07/2016,electric,Endurance,None,Meda,outdoor,60,00:53:23,00:53:23
+22/07/2016,fuel,free laps,None,Rozzano,outdoor,62,00:48:23,00:48:23
+23/07/2016,fuel,free laps,None,Rozzano,outdoor,58,00:54:23,00:54:23
+24/07/2016,fuel,free laps,None,Lignano,indoor,43,00:50:23,00:50:23
+25/07/2016,fuel,GP,None,Sestu,indoor,45,00:55:23,00:55:23
+26/07/2016,fuel,free laps,None,Buccinasco,indoor,47,00:59:23,00:59:23
+27/07/2016,fuel,free laps,None,Sestu,indoor,48,1:00:453,01:03:00
+28/07/2016,fuel,free laps,None,Lignano,indoor,43,1:01:453,01:03:00
