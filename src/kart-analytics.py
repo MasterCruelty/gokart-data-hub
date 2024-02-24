@@ -50,35 +50,57 @@ def plot_avg_speed():
     plt.savefig('avg_speed_plot.pdf')  # Save as PDF
     plt.show()
 
+# Function to plot best and avg time for every track location
+def plot_best_avg_track_names():
+    track_names = df['track-name'].unique()
+    for track_name in track_names:
+        track_df = df[df['track-name'] == track_name]
+        plt.figure(figsize=(10, 6))
+        plt.plot(track_df['date'], track_df['best-time'], label='Best Time', marker='o')
+        plt.plot(track_df['date'], track_df['avg-time'], label='Average Time', marker='o')
+        plt.title(f'Best and Average time lap in {track_name}')
+        plt.xlabel('Date')
+        plt.ylabel('Time')
+        plt.legend()
+        plt.savefig(f'{track_name}_time_plot.pdf')  # Save as PDF
+        plt.show()
+
+def plot_avg_speed_track_names():
+    track_names = df['track-name'].unique()
+    for track_name in track_names:
+        track_df = df[df['track-name'] == track_name]
+        plt.figure(figsize=(10, 6))
+        plt.plot(track_df['date'], track_df['avg-speed'], label='Average Speed', marker='o')
+        plt.title(f'Average Speed in {track_name}')
+        plt.xlabel('Date')
+        plt.ylabel('Time')
+        plt.legend()
+        plt.savefig(f'{track_name}_speed_plot.pdf')  # Save as PDF
+        plt.show()
+
 # Main loop for textual menu
 while True:
     print("Menu:")
-    print("1) Show best-time indoor")
-    print("2) Show best-time outdoor")
-    print("3) Show best-time and avg time per track-name")
-    print("4) Exit")
+    print("1) Show best-time indoor/outdoor tracks.")
+    print("2) Show avg-time indoor/outdoor tracks.")
+    print("3) Show avg-speed in indoor/outdoor tracks.")
+    print("4) Show best-time and avg time per track-name")
+    print("5) Show avg-speed and avg time per track-name")
+    print("6) Exit")
 
     choice = input("Enter your choice: ")
 
     if choice == '1':
         plot_best_time()
     elif choice == '2':
-        plot_best_time()
+        plot_avg_time()
     elif choice == '3':
-        # Assuming 'track-name' column exists, you can modify this part based on your data
-        track_names = df['track-name'].unique()
-        for track_name in track_names:
-            track_df = df[df['track-name'] == track_name]
-            plt.figure(figsize=(10, 6))
-            plt.plot(track_df['date'], track_df['best-time'], label='Best Time', marker='o')
-            plt.plot(track_df['date'], track_df['avg-time'], label='Average Time', marker='o')
-            plt.title(f'Best and Average time lap in {track_name}')
-            plt.xlabel('Date')
-            plt.ylabel('Time')
-            plt.legend()
-            plt.savefig(f'{track_name}_time_plot.pdf')  # Save as PDF
-            plt.show()
+        plot_avg_speed()
     elif choice == '4':
+        plot_best_avg_track_names()
+    elif choice == '5':
+        plot_avg_speed_track_names()
+    elif choice == '6':
         print("Exiting...")
         break
     else:
