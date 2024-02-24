@@ -1,0 +1,27 @@
+date,kart-type,race-type,position,track-name,track-type,avg-speed,best-time,avg-time
+17/11/2013,fuel,free laps,8 / 10,Dromokart(Buccinasco),indoor,42,01:00:649,01:04:945
+13/10/2017,fuel,free laps,6 / 8,Dromokart(Buccinasco),indoor,49,00:50:514,00:58:924
+02/04/2018,fuel,free laps,3 / 5,Dromokart(Buccinasco),indoor,46,00:54:459,00:56:707
+22/09/2018,fuel,free laps,1 / 7,Dromokart(Buccinasco),indoor,51,00:49:042,00:51:609
+12/10/2018,fuel,free laps,5 / 6,Dromokart(Buccinasco),indoor,52,00:47:707,00:49:452
+28/11/2018,fuel,free laps,4 / 7,Dromokart(Buccinasco),indoor,49,00:51:416,00:54:416
+29/07/2020,fuel,free laps,4 / 7,Dromokart(Buccinasco),indoor,45,00:55:715,00:57:196
+12/11/2021,fuel,free laps,3 / 13,Dromokart(Buccinasco),indoor,49,00:51:379,00:52:949
+6/11/2022,fuel,free laps,4 / 13,Dromokart(Buccinasco),indoor,47,00:53:495,00:55:920
+14/11/2022,fuel,free laps,3 / 8,Dromokart(Buccinasco),indoor,48,00:52:074,00:52:915
+18/11/2022,fuel,free laps,2 / 4,Dromokart(Buccinasco),indoor,47,00:52:745,00:55:932
+13/02/2023,fuel,free laps,3 / 4,Dromokart(Buccinasco),indoor,49,00:51:056,00:52:565
+22/03/2023,fuel,free laps,2 / 6,Dromokart(Buccinasco),indoor,48,00:51:671,00:55:267
+21/09/2023,fuel,free laps,2 / 7,Dromokart(Buccinasco),indoor,47,00:52:581,00:54:018
+18/10/2023,fuel,free laps,1 / 3,Dromokart(Buccinasco),indoor,45,00:55:215,00:55:671
+02/11/2023,fuel,free laps,3 / 5,Dromokart(Buccinasco),indoor,45,00:55:865,00:57:166
+12/06/2023,electric,free laps,5 / 7,E-Motion(Meda),indoor,NaN,00:57:168,01:05:097
+12/06/2023,electric,GP,1 / 7,E-Motion(Meda),indoor,NaN,00:51:480,00:53:481
+12/06/2023,electric,GP,1 / 7,E-Motion(Meda),indoor,NaN,00:51:160,00:52:354
+17/10/2023,electric,free laps,10 / 10,E-Motion(Meda),indoor,NaN,00:51:453,00:53:473
+17/10/2023,electric,GP,4 / 9,E-Motion(Meda),indoor,NaN,00:49:504,00:51:750
+14/07/2023,fuel,free laps,9 / 12,BigKart(Rozzano),outdoor,NaN,00:50:674,00:52:383
+08/08/2023,fuel,free laps,7 / 9,LignanoCircuit(Lignano),outdoor,60.11,00:56:892,00:58:091
+08/08/2023,fuel,GP,7 / 9,LignanoCircuit(Lignano),outdoor,60.15,00:55:261,00:56:422
+22/08/2023,fuel,free laps,1 / 3,SestuGO(Sestu),outdoor,NaN,00:54:297,00:54:821
+22/08/2023,fuel,GP,1 / 3,SestuGO(Sestu),outdoor,NaN,00:53:336,00:54:296
