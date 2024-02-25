@@ -73,6 +73,7 @@ def plot_avg_speed():
     plt.savefig('avg_speed_plot.pdf')  # Save as PDF
     plt.show()
 
+# Function to plot avg speed for every track location
 def plot_avg_speed_track_names():
     track_names = df['track-name'].unique()
     for track_name in track_names:
@@ -88,15 +89,23 @@ def plot_avg_speed_track_names():
         plt.savefig(f'{track_name}_speed_plot.pdf')  # Save as PDF
         plt.show()
 
+def all_best_time():
+    idx_miglior_tempo = df.groupby('track-name')['best-time'].idxmin()
+    print("#####################################")
+    for idx in idx_miglior_tempo:
+        print(df.loc[idx])
+        print("#####################################")
+
 # Main loop for textual menu
 while True:
     print("Menu:")
-    print("1) Show best-time indoor/outdoor tracks.")
-    print("2) Show avg-time indoor/outdoor tracks.")
-    print("3) Show avg-speed in indoor/outdoor tracks.")
-    print("4) Show best-time and avg time for every track-name")
-    print("5) Show avg-speed for every track-name")
-    print("6) Exit")
+    print("1) Plot best-time indoor/outdoor tracks.")
+    print("2) Plot avg-time indoor/outdoor tracks.")
+    print("3) Plot avg-speed in indoor/outdoor tracks.")
+    print("4) Plot best-time and avg time for every track-name")
+    print("5) Plot avg-speed for every track-name")
+    print("6) Show your best-time of all time for every track location.")
+    print("7) Exit")
 
     choice = input("Enter your choice: ")
 
@@ -111,6 +120,8 @@ while True:
     elif choice == '5':
         plot_avg_speed_track_names()
     elif choice == '6':
+        all_best_time()
+    elif choice == '7':
         print("Exiting...")
         break
     else:
