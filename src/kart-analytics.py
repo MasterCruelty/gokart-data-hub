@@ -1,7 +1,5 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-import matplotlib.dates as mdates
-import numpy as np
 
 # Read csv file
 df = pd.read_csv(r'kart-data-example.csv', na_values=['', 'NA', 'N/A', 'NaN'])
@@ -51,19 +49,18 @@ def plot_avg_time():
 def plot_best_avg_track_names():
     track_names = df['track-name'].unique()
     for track_name in track_names:
-        track_best = df[df['track-name'] == track_name]
-        track_best['best-time'] = pd.to_timedelta(track_best['best-time'])
-        track_avg = df[df['track-name'] == track_name]
-        track_avg['avg-time'] = pd.to_timedelta(track_avg['avg-time'])
+        track_best = df[df['track-name'] == track_name].sort_values(by='best-time')
+        track_avg = df[df['track-name'] == track_name].sort_values(by='avg-time')
         plt.figure(figsize=(10, 6))
         plt.plot(track_best['date'], track_best['best-time'], label='Best Time', marker='o')
-        plt.plot(track_best['date'], track_avg['avg-time'], label='Avg Time', marker='o')
+        #plt.plot(track_avg['date'], track_avg['avg-time'], label='Average Time', marker='o')
         plt.title(f'Best and Average time lap in {track_name}')
         plt.xlabel('Date')
         plt.ylabel('Time')
         plt.legend()
         plt.savefig(f'{track_name}_time_plot.pdf')  # Save as PDF
         plt.show()
+
 
 # Function to plot avg speed
 def plot_avg_speed():
@@ -81,8 +78,6 @@ def plot_avg_speed_track_names():
     track_names = df['track-name'].unique()
     for track_name in track_names:
         track_df = df[df['track-name'] == track_name]
-        if 'NaN' in str(track_df['avg-speed']):
-            continue
         plt.figure(figsize=(10, 6))
         plt.plot(track_df['date'], track_df['avg-speed'], label='Average Speed', marker='o')
         plt.title(f'Average Speed in {track_name}')
