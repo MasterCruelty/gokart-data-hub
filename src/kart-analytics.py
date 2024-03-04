@@ -18,29 +18,51 @@ indoor_df = df[df['track-type'] == 'indoor']
 outdoor_df = df[df['track-type'] == 'outdoor']
 
 
-# Function to plot best-time
-def plot_best_time():
+# Function to plot best-time in indoor tracks
+def plot_best_time_indoor():
     plt.figure(figsize=(12, 6))
     plt.plot(indoor_df['date'], indoor_df['best-time'], label='Indoor', marker='o')
-    plt.plot(outdoor_df['date'], outdoor_df['best-time'], label='Outdoor', marker='o')
-    plt.title('Best time lap in indoor and outdoor tracks.')
+    plt.title('Best time lap in indoor tracks.')
     plt.xlabel('Date')
     plt.ylabel('Best time lap')
     plt.legend()
-    plt.savefig('best_time_plot.pdf')  # Save as PDF
+    plt.savefig('best_time_plot_indoor.pdf')  # Save as PDF
     plt.show()
 
-# Function to plot avg-time
-def plot_avg_time():
+# Function to plot best-time in outdoor tracks
+def plot_best_time_outdoor():
+    plt.figure(figsize=(12, 6))
+    plt.plot(outdoor_df['date'], outdoor_df['best-time'], label='Outdoor', marker='o')
+    plt.title('Best time lap in outdoor tracks.')
+    plt.xlabel('Date')
+    plt.ylabel('Best time lap')
+    plt.legend()
+    plt.savefig('best_time_plot_outdoor.pdf')  # Save as PDF
+    plt.show()
+
+
+# Function to plot avg-time in indoor tracks
+def plot_avg_time_indoor():
     plt.figure(figsize=(12, 6))
     plt.plot(indoor_df['date'], indoor_df['avg-time'], label='Indoor', marker='o')
-    plt.plot(outdoor_df['date'], outdoor_df['avg-time'], label='Outdoor', marker='o')
-    plt.title('Average time lap in indoor and outdoor tracks.')
+    plt.title('Average time lap in indoor tracks.')
     plt.xlabel('Date')
     plt.ylabel('Average time lap')
     plt.legend()
-    plt.savefig('avg_time_plot.pdf')  # Save as PDF
+    plt.savefig('avg_time_plot_indoor.pdf')  # Save as PDF
     plt.show()
+
+# Function to plot avg-time in outdoor tracks
+def plot_avg_time_outdoor():
+    plt.figure(figsize=(12, 6))
+    plt.plot(outdoor_df['date'], outdoor_df['avg-time'], label='Outdoor', marker='o')
+    plt.title('Average time lap in outdoor tracks.')
+    plt.xlabel('Date')
+    plt.ylabel('Average time lap')
+    plt.legend()
+    plt.savefig('avg_time_plot_outdoor.pdf')  # Save as PDF
+    plt.show()
+
 
 # Function to plot best and avg time for every track location
 def plot_best_avg_track_names():
@@ -110,9 +132,11 @@ while True:
     choice = input("Enter your choice: ")
 
     if choice == '1':
-        plot_best_time()
+        plot_best_time_indoor()
+        plot_best_time_outdoor()
     elif choice == '2':
-        plot_avg_time()
+        plot_avg_time_indoor()
+        plot_avg_time_outdoor()
     elif choice == '3':
         plot_avg_speed()
     elif choice == '4':
