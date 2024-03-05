@@ -1,5 +1,8 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import numpy as np
+import seaborn as sns
+import matplotlib.dates as mdates
 
 # Read csv file
 df = pd.read_csv(r'kart-data-example.csv', na_values=['', 'NA', 'N/A', 'NaN'])
@@ -20,14 +23,10 @@ outdoor_df = df[df['track-type'] == 'outdoor']
 
 # Function to plot best-time in indoor tracks
 def plot_best_time_indoor():
-    plt.figure(figsize=(12, 6))
-    plt.plot(indoor_df['date'], indoor_df['best-time'], label='Indoor', marker='o')
-    plt.title('Best time lap in indoor tracks.')
-    plt.xlabel('Date')
-    plt.ylabel('Best time lap')
-    plt.legend()
-    plt.savefig('best_time_plot_indoor.pdf')  # Save as PDF
-    plt.show()
+    indoor_df['date_numeric'] = mdates.date2num(indoor_df['date'])
+    ax = sns.regplot(data=indoor_df, x="date_numeric", y="best-time")
+    ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
+    
 
 # Function to plot best-time in outdoor tracks
 def plot_best_time_outdoor():
@@ -132,6 +131,7 @@ while True:
     choice = input("Enter your choice: ")
 
     if choice == '1':
+        #slope,intercept = perform_linear_regression(indoor_df)
         plot_best_time_indoor()
         plot_best_time_outdoor()
     elif choice == '2':
