@@ -142,7 +142,6 @@ while True:
     choice = input("Enter your choice: ")
 
     if choice == '1':
-        #slope,intercept = perform_linear_regression(indoor_df)
         plot_best_time_indoor()
         plot_best_time_outdoor()
     elif choice == '2':
