@@ -14,6 +14,26 @@
 ### What is it?
 A simple tool made in python with pandas and matplotlib, which analyzes a csv containing gokart data about your races. Then it will plot a few graphs to show better your trend throught the years.
 
+# Libraries used
+* pandas
+* matplotlib
+* seaborn
+
+# Usage
+Launch the program by typing the following command.
+```ruby
+python kart-analytics.py
+```
+<br><b>The main menu looks like this:<br></b>
+
+![image](https://github.com/MasterCruelty/gokart-data-hub/assets/72561502/266dc479-72e3-4372-8fe4-01dbcfb41a94)
+
+<br><b>For example we choose option 4, the following chart is the output:</b><br>
+
+![image](https://github.com/MasterCruelty/gokart-data-hub/assets/72561502/427f9f33-f9f6-4d56-9429-5667831adb9b)
+
+<h3><b>This is the linear regression of all best time that I did in Dromokart track.</b></h3>
+
 
 ### Contribute
 Feel free to contribute and improve the project. You can read the guidelines to contribute [here](https://github.com/MasterCruelty/gokart-data-hub/blob/main/CONTRIBUTING.md)
