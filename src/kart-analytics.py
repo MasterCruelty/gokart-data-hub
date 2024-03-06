@@ -28,8 +28,7 @@ def plot_best_time_indoor():
     ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
     plt.title('Best time lap in indoor tracks.')
     plt.xlabel("Date")
-    plt.ylabel("Best time lap")
-    plt.legend()
+    plt.ylabel("Best Time Indoor")
     plt.show()
 
 
@@ -38,10 +37,9 @@ def plot_best_time_outdoor():
     outdoor_df.loc[:, 'date_numeric'] = mdates.date2num(outdoor_df['date'])
     ax = sns.regplot(data=outdoor_df, x="date_numeric", y="best-time")
     ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
-    plt.title('Average time lap in indoor tracks.')
+    plt.title('Best time lap in outdoor tracks.')
     plt.xlabel("Date")
-    plt.ylabel("Average time lap")
-    plt.legend()
+    plt.ylabel("Best Time Outdoor")
     plt.show()
 
 
@@ -50,13 +48,20 @@ def plot_avg_time_indoor():
     indoor_df.loc[:, 'date_numeric'] = mdates.date2num(indoor_df['date'])
     ax = sns.regplot(data=indoor_df, x="date_numeric", y="avg-time")
     ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
-    plt.title('Best time lap in outdoor tracks.')
+    plt.title('Average time lap in indoor tracks.')
+    plt.xlabel("Date")
+    plt.ylabel("Average Time Indoor")
+    plt.show()
 
 # Function to plot avg-time in outdoor tracks
 def plot_avg_time_outdoor():
     outdoor_df.loc[:, 'date_numeric'] = mdates.date2num(outdoor_df['date'])
     ax = sns.regplot(data=outdoor_df, x="date_numeric", y="avg-time")
     ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
+    plt.title('Average time lap in outdoor tracks.')
+    plt.xlabel("Date")
+    plt.ylabel("Average Time Outdoor")
+    plt.show()
 
 
 # Function to plot best and avg time for every track location
@@ -65,16 +70,18 @@ def plot_best_avg_track_names():
     for track_name in track_names:
         track_best = df[df['track-name'] == track_name]
         track_avg = df[df['track-name'] == track_name]
-        
-        track_best['date_numeric'] = mdates.date2num(track_best['date'])
+        plt.figure(figsize=(12, 6))
+        track_best.loc[:,'date_numeric'] = mdates.date2num(track_best['date'])
         ax = sns.regplot(data=track_best, x="date_numeric", y="best-time")
         ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
                 
-        track_avg['date_numeric'] = mdates.date2num(track_avg['date'])
+        track_avg.loc[:,'date_numeric'] = mdates.date2num(track_avg['date'])
         ax = sns.regplot(data=track_avg, x="date_numeric", y="avg-time")
         ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
         
         plt.title(f'Best and Average time lap in {track_name}')
+        plt.show()
+
 
 
 # Function to plot avg speed
