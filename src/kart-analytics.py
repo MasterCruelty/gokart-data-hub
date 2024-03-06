@@ -20,6 +20,7 @@ df = df.sort_values(by='date')
 indoor_df = df[df['track-type'] == 'indoor']
 outdoor_df = df[df['track-type'] == 'outdoor']
 
+sns.set(rc={'figure.figsize':(10, 6)})
 
 # Function to plot best-time in indoor tracks
 def plot_best_time_indoor():
@@ -74,12 +75,18 @@ def plot_best_avg_track_names():
         track_best.loc[:,'date_numeric'] = mdates.date2num(track_best['date'])
         ax = sns.regplot(data=track_best, x="date_numeric", y="best-time")
         ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
-                
+        plt.title(f'Best Time lap in {track_name}')
+        plt.xlabel("Date")
+        plt.ylabel("Best Time")
+        plt.show()
+        
+        
         track_avg.loc[:,'date_numeric'] = mdates.date2num(track_avg['date'])
         ax = sns.regplot(data=track_avg, x="date_numeric", y="avg-time")
         ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
-        
-        plt.title(f'Best and Average time lap in {track_name}')
+        plt.title(f'Average Time lap in {track_name}')
+        plt.xlabel("Date")
+        plt.ylabel("Average Time")
         plt.show()
 
 
