@@ -11,13 +11,28 @@
 ![image](https://img.shields.io/github/contributors/MasterCruelty/gokart-data-hub)
 
 # gokart-data-hub
-### What is it?
+# What is it?
 A simple tool made in python with pandas and matplotlib, which analyzes a csv containing gokart data about your races. Then it will plot a few graphs to show better your trend throught the years.
 
 # Libraries used
 * pandas
 * matplotlib
 * seaborn
+
+# Data description
+![image](https://github.com/MasterCruelty/gokart-data-hub/assets/72561502/43028072-b3cf-4ea0-8a01-9b2308c0b923)
+* date: when the race was held
+* kart-type: if is a fuel kart or an electric one.
+* race-type: if it's a free laps session or a real race.
+* position: Position Conquered.
+* track-type: if it's indoor or outdoor track.
+* condition: track condition(rained, standard or other)
+* kart-type: motor power.
+* avg-speed: average speed during the race.
+* best-time: best of all times in that race.
+* avg-time: average time during the race.
+* best-time(TIME) and avg-time(TIME): just for cute visualization of times but terrific to manage in python.
+
 
 # Usage
 Launch the program by typing the following command.
