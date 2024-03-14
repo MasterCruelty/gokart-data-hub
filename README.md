@@ -33,6 +33,9 @@ A simple tool made in python with pandas and matplotlib, which analyzes a csv co
 * avg-time: average time during the race.
 * best-time(TIME) and avg-time(TIME): just for cute visualization of times but terrific to manage in python.
 
+The last info mentioned about data is a limit for the graphic visualization. That's because you're gonna see on the something like "54" or "54,2" instead of a more beautiful data such as "00:54:483".<br>
+<i>Any hint or help is appreciated, read more about contributing below on this readme.</i>
+
 
 # Usage
 Launch the program by typing the following command.
