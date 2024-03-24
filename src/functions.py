@@ -100,6 +100,7 @@ def plot_avg_speed_track_names(df):
         plt.savefig(f'{track_name}_speed_plot.pdf')  # Save as PDF
         plt.show()
 
+# Function to show all best time for every track directly on terminal
 def all_best_time(df):
     idx_miglior_tempo = df.groupby('track-name')['best-time'].idxmin()
     print("#####################################")
