@@ -1,8 +1,5 @@
 import pandas as pd
-import matplotlib.pyplot as plt
-import numpy as np
-import seaborn as sns
-import matplotlib.dates as mdates
+from functions import *
 
 # Read csv file
 df = pd.read_csv(r'kart-data-example.csv', na_values=['', 'NA', 'N/A', 'NaN'])
@@ -20,115 +17,8 @@ df = df.sort_values(by='date')
 indoor_df = df[df['track-type'] == 'indoor']
 outdoor_df = df[df['track-type'] == 'outdoor']
 
-sns.set(rc={'figure.figsize':(10, 6)})
 
-# Function to plot best-time in indoor tracks
-def plot_best_time_indoor():
-    indoor_df.loc[:, 'date_numeric'] = mdates.date2num(indoor_df['date'])
-    ax = sns.regplot(data=indoor_df, x="date_numeric", y="best-time")
-    ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
-    plt.title('Best time lap in indoor tracks.')
-    plt.xlabel("Date")
-    plt.ylabel("Best Time Indoor")
-    plt.show()
-
-
-# Function to plot best-time in outdoor tracks
-def plot_best_time_outdoor():
-    outdoor_df.loc[:, 'date_numeric'] = mdates.date2num(outdoor_df['date'])
-    ax = sns.regplot(data=outdoor_df, x="date_numeric", y="best-time")
-    ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
-    plt.title('Best time lap in outdoor tracks.')
-    plt.xlabel("Date")
-    plt.ylabel("Best Time Outdoor")
-    plt.show()
-
-
-# Function to plot avg-time in indoor tracks
-def plot_avg_time_indoor():
-    indoor_df.loc[:, 'date_numeric'] = mdates.date2num(indoor_df['date'])
-    ax = sns.regplot(data=indoor_df, x="date_numeric", y="avg-time")
-    ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
-    plt.title('Average time lap in indoor tracks.')
-    plt.xlabel("Date")
-    plt.ylabel("Average Time Indoor")
-    plt.show()
-
-# Function to plot avg-time in outdoor tracks
-def plot_avg_time_outdoor():
-    outdoor_df.loc[:, 'date_numeric'] = mdates.date2num(outdoor_df['date'])
-    ax = sns.regplot(data=outdoor_df, x="date_numeric", y="avg-time")
-    ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
-    plt.title('Average time lap in outdoor tracks.')
-    plt.xlabel("Date")
-    plt.ylabel("Average Time Outdoor")
-    plt.show()
-
-
-# Function to plot best and avg time for every track location
-def plot_best_avg_track_names():
-    track_names = df['track-name'].unique()
-    for track_name in track_names:
-        track_best = df[df['track-name'] == track_name]
-        track_avg = df[df['track-name'] == track_name]
-        plt.figure(figsize=(12, 6))
-        track_best.loc[:,'date_numeric'] = mdates.date2num(track_best['date'])
-        ax = sns.regplot(data=track_best, x="date_numeric", y="best-time")
-        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
-        plt.title(f'Best Time lap in {track_name}')
-        plt.xlabel("Date")
-        plt.ylabel("Best Time")
-        plt.show()
-        
-        
-        track_avg.loc[:,'date_numeric'] = mdates.date2num(track_avg['date'])
-        ax = sns.regplot(data=track_avg, x="date_numeric", y="avg-time")
-        ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
-        plt.title(f'Average Time lap in {track_name}')
-        plt.xlabel("Date")
-        plt.ylabel("Average Time")
-        plt.show()
-
-
-
-# Function to plot avg speed
-def plot_avg_speed():
-    plt.figure(figsize=(12, 6))
-    indoor_speed = indoor_df[indoor_df['avg-speed'] != 0]
-    outdoor_speed = outdoor_df[outdoor_df['avg-speed'] != 0]
-    plt.plot(indoor_speed['date'], indoor_speed['avg-speed'], label='Indoor', marker='o')
-    plt.plot(outdoor_speed['date'], outdoor_speed['avg-speed'], label='Outdoor', marker='o')
-    plt.title('Average speed in indoor and outdoor tracks.')
-    plt.xlabel('Date')
-    plt.ylabel('Average speed')
-    plt.legend()
-    plt.savefig('avg_speed_plot.pdf')  # Save as PDF
-    plt.show()
-
-# Function to plot avg speed for every track location
-def plot_avg_speed_track_names():
-    track_names = df['track-name'].unique()
-    for track_name in track_names:
-        track_df = df[df['track-name'] == track_name]
-        if (track_df['avg-speed'] == 0).any():
-            continue
-        plt.figure(figsize=(10, 6))
-        plt.plot(track_df['date'], track_df['avg-speed'], label='Average Speed', marker='o')
-        plt.title(f'Average Speed in {track_name}')
-        plt.xlabel('Date')
-        plt.ylabel('Time')
-        plt.legend()
-        plt.savefig(f'{track_name}_speed_plot.pdf')  # Save as PDF
-        plt.show()
-
-def all_best_time():
-    idx_miglior_tempo = df.groupby('track-name')['best-time'].idxmin()
-    print("#####################################")
-    for idx in idx_miglior_tempo:
-        print(df.loc[idx])
-        print("#####################################")
-
-# Main loop for textual menu
+# Main menu
 while True:
     print("Menu:")
     print("1) Plot best-time indoor/outdoor tracks.")
@@ -142,19 +32,19 @@ while True:
     choice = input("Enter your choice: ")
 
     if choice == '1':
-        plot_best_time_indoor()
-        plot_best_time_outdoor()
+        plot_best_time_indoor(indoor_df)
+        plot_best_time_outdoor(outdoor_df)
     elif choice == '2':
-        plot_avg_time_indoor()
-        plot_avg_time_outdoor()
+        plot_avg_time_indoor(indoor_df)
+        plot_avg_time_outdoor(outdoor_df)
     elif choice == '3':
-        plot_avg_speed()
+        plot_avg_speed(indoor_df,outdoor_df)
     elif choice == '4':
-        plot_best_avg_track_names()
+        plot_best_avg_track_names(df)
     elif choice == '5':
-        plot_avg_speed_track_names()
+        plot_avg_speed_track_names(df)
     elif choice == '6':
-        all_best_time()
+        all_best_time(df)
     elif choice == '7':
         print("Exiting...")
         break
