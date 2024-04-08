@@ -22,6 +22,7 @@ date,kart-type,race-type,position,track-name,track-type,condition,kart-type,avg-
 14/07/2023,fuel,free laps,9 / 12,BigKart(Rozzano),outdoor,standard,270cc,0,"50,674","52,383",00:50:674,00:52:383
 28/02/2024,fuel,free laps,3 / 10,BigKart(Rozzano),outdoor,rain,270cc,0,"64,247","66,589",01:04:247,01:06:589
 14/03/2024,fuel,free laps,5 / 9,BigKart(Rozzano),outdoor,standard,270cc,0,"49,347","50,848",00:49:347,00:50:848
+08/04/2024,fuel,free laps,1 / 3,BigKart(Rozzano),outdoor,standard,270cc,0,"47,679","48,364",00:47:679,00:48:364
 08/08/2023,fuel,free laps,7 / 9,LignanoCircuit(Lignano),outdoor,standard,270cc,60,"56,892","58,091",00:56:892,00:58:091
 08/08/2023,fuel,GP,7 / 9,LignanoCircuit(Lignano),outdoor,standard,270cc,60,"55,261","56,422",00:55:261,00:56:422
 22/08/2023,fuel,free laps,1 / 3,SestuGO(Sestu),outdoor,standard,390cc,0,"54,297","54,821",00:54:297,00:54:821
