@@ -49,8 +49,8 @@ def plot_avg_time_outdoor(outdoor_df):
 def plot_best_avg_track_names(df):
     track_names = df['track-name'].unique()
     for track_name in track_names:
-        track_best = df[df['track-name'] == track_name]
-        track_avg = df[df['track-name'] == track_name]
+        track_best = df[(df['track-name'] == track_name) & (df['condition'] == 'standard')]
+        track_avg = df[(df['track-name'] == track_name) & (df['condition'] == 'standard')]
         plt.figure(figsize=(12, 6))
         track_best.loc[:,'date_numeric'] = mdates.date2num(track_best['date'])
         ax = sns.regplot(data=track_best, x="date_numeric", y="best-time")
