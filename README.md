@@ -29,7 +29,7 @@ Feel free to contribute and improve the project. You can read the guidelines to 
 * race-type: if it's a free laps session or a real race.
 * position: Position Conquered.
 * track-type: if it's indoor or outdoor track.
-* condition: track condition(rained, standard or other)
+* condition: track condition(rained, standard, cut-track, full-track)
 * kart-type: motor power.
 * avg-speed: average speed during the race.
 * best-time: best of all times in that race.
